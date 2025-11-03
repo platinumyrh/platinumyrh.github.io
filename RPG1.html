@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品详情：RPG 核心框架</title>
+    <!-- 加载 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 使用 Inter 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* 强制使用 Inter 字体 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* GitHub Dark Theme Background */
+            color: #c9d1d9; /* Light text color */
+        }
+        /* 自定义滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+        .detail-card {
+            @apply p-6 rounded-xl bg-[#161b22] border border-[#30363d] shadow-lg;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-[#161b22]/95 backdrop-blur-sm border-b border-[#30363d]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- 返回按钮/Logo -->
+            <a href="Home.html" class="text-xl font-medium text-sky-400 hover:text-sky-300 transition duration-300 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                返回作品集
+            </a>
+            <span class="text-lg font-bold text-white hidden sm:block">遗迹探险家：核心框架</span>
+            <div class="space-x-4">
+                 <a href="https://github.com/platinumyrh/SimpleRPGProject" class="text-sm font-medium text-gray-400 hover:text-white transition duration-300">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 标题区 -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-3">
+                遗迹探险家：核心框架
+            </h1>
+            <p class="text-xl text-sky-400 font-light mb-4">
+                (RPG Core Framework) - 模块化与数据驱动的系统设计
+            </p>
+            <p class="text-gray-400 max-w-3xl mx-auto">
+                本项目旨在构建一套可复用、易扩展的 Unity RPG 核心系统，重点关注 AI 逻辑、数据管理和本地持久化。
+            </p>
+        </section>
+
+        <!-- 视频/截图展示 -->
+        <section class="mb-12">
+            <div class="w-full h-80 md:h-96 bg-[#1e2329] rounded-xl flex items-center justify-center overflow-hidden border-2 border-sky-600/50 shadow-2xl">
+                <!-- 请在此处嵌入 YouTube 或 BiliBili 视频/GIF 动图 -->
+                <video src="img/RPG1.mp4" autoplay loop muted playsinline class="w-full h-full object-cover">
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- 核心功能与技术实现 -->
+            <div class="lg:col-span-2 space-y-8">
+                <div class="detail-card">
+                    <h2 class="text-2xl font-semibold text-white mb-4 border-b border-[#30363d] pb-2 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        核心功能与系统实现
+                    </h2>
+                    <ul class="space-y-4 text-gray-300 list-disc pl-5">
+                        <li>
+                            **模块化 AI 系统 (C# Behavior Tree)：**
+                            实现了自定义的**行为树**结构，用于管理敌人 NPC 的巡逻（Patrol）、追逐（Chase）和攻击（Attack）状态。通过面向对象设计，使得行为节点可插拔、易于调试。
+                        </li>
+                        <li>
+                            **数据驱动设计 (Scriptable Objects)：**
+                            所有非代码数据，如对话文本、任务定义、物品属性和角色基础数值，均使用 **Unity Scriptable Objects** 进行管理。极大地提高了策划配置效率和数据的可维护性。
+                        </li>
+                        <li>
+                            **轻量级本地存档：**
+                            利用 C# 内置的 `JsonUtility` 库，实现了玩家背包、任务进度和属性数据的 To-JSON 序列化与反序列化，实现可靠、轻量的本地存档功能。
+                        </li>
+                        <li>
+                            **事件系统 (C# Events)：**
+                            使用 C# 事件和委托（Delegates）解耦 UI 逻辑和核心系统逻辑（例如：任务更新、物品拾取），降低了模块间的依赖性。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 右侧边栏 - 技术栈 -->
+            <div class="lg:col-span-1 space-y-8">
+                <div class="detail-card">
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-[#30363d] pb-2">技术栈与工具</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Unity 2022+</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Scriptable Objects</span>
+                        <span class="skill-tag">Behavior Tree</span>
+                        <span class="skill-tag">JSON Utility</span>
+                        <span class="skill-tag">C# Events/Delegates</span>
+                        <span class="skill-tag">2D/3D 移动控制</span>
+                        <span class="skill-tag">面向对象设计 (OOP)</span>
+                    </div>
+                    <style>
+                        .skill-tag {
+                            @apply px-3 py-1 bg-sky-700/50 text-sky-100 text-xs rounded-full font-medium;
+                        }
+                    </style>
+                </div>
+
+                <div class="detail-card">
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-[#30363d] pb-2">项目贡献</h2>
+                    <ul class="space-y-2 text-gray-400 list-disc pl-5 text-sm">
+                        <li>**角色控制**：独立编写 (100%)</li>
+                        <li>**AI 行为树**：独立设计与实现 (100%)</li>
+                        <li>**SO 数据系统**：独立设计与实现 (100%)</li>
+                        <li>**美术资源**：使用 Asset Store 资源</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 底部版权 (Footer) -->
+    <footer class="mt-20 py-8 border-t border-[#30363d] text-center text-sm text-gray-500">
+        &copy; <span id="current-year-detail"></span>  Platinum. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById('current-year-detail').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

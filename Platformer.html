@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品详情：时间回溯者：2D平台跳跃游戏</title>
+    <!-- 加载 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 使用 Inter 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* 强制使用 Inter 字体 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* GitHub Dark Theme Background */
+            color: #c9d1d9; /* Light text color */
+        }
+        /* 自定义滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+        .detail-card {
+            @apply p-6 rounded-xl bg-[#161b22] border border-[#30363d] shadow-lg;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-[#161b22]/95 backdrop-blur-sm border-b border-[#30363d]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- 返回按钮/Logo -->
+            <a href="Home.html" class="text-xl font-medium text-sky-400 hover:text-sky-300 transition duration-300 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                返回作品集
+            </a>
+            <span class="text-lg font-bold text-white hidden sm:block">像素探险：2D平台跳跃游戏</span>
+            <div class="space-x-4">
+                 <a href="https://github.com/platinumyrh/SimplePlatformer" class="text-sm font-medium text-gray-400 hover:text-white transition duration-300">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 标题区 -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-3">
+                像素探险：2D平台跳跃游戏
+            </h1>
+            <p class="text-xl text-sky-400 font-light mb-4">
+                (Pixel Explorer: 2D Platformer) - 物理驱动的流畅操控与关卡设计
+            </p>
+            <p class="text-gray-400 max-w-3xl mx-auto">
+                本项目旨在开发一款 2D 像素风格的平台跳跃游戏，重点实现高响应度的角色控制器、复杂的移动机制和模块化关卡组件。
+            </p>
+        </section>
+
+        <!-- 视频/截图展示 -->
+        <section class="mb-12">
+            <div class="w-full h-80 md:h-96 bg-[#1e2329] rounded-xl flex items-center justify-center overflow-hidden border-2 border-sky-600/50 shadow-2xl">
+                <!-- 请在此处嵌入 YouTube 或 BiliBili 视频/GIF 动图 -->
+               <video src="img/platformer1.mp4" autoplay loop muted playsinline class="w-full h-full object-cover">
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- 核心功能与技术实现 -->
+            <div class="lg:col-span-2 space-y-8">
+                <div class="detail-card">
+                    <h2 class="text-2xl font-semibold text-white mb-4 border-b border-[#30363d] pb-2 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        核心功能与系统实现
+                    </h2>
+                    <ul class="space-y-4 text-gray-300 list-disc pl-5">
+                        <li>
+                            **高响应度角色控制器：**
+                            自定义实现了基于物理学的角色移动逻辑，包括跳跃、二段跳、冲刺和贴墙滑行，确保了流畅和精确的操作手感。
+                        </li>
+                        <li>
+                            **精确碰撞检测 (Raycasting)：**
+                            采用射线投射（Raycasting）机制处理地面、墙壁和障碍物的精确碰撞，解决了 Unity 默认物理引擎在快速移动中可能出现的穿透问题。
+                        </li>
+                        <li>
+                            **状态机 (FSM) 管理：**
+                            使用简单的状态机模式管理角色状态（Idle, Run, Jump, Dash, Hit），确保状态切换逻辑清晰、可控，动画播放与状态同步。
+                        </li>
+                        <li>
+                            **模块化关卡组件：**
+                            设计了可复用的关卡元素（移动平台、陷阱、收集品），通过 Unity Prefabs 和接口实现交互逻辑，极大提高了关卡设计效率。
+                        </li>
+                        <li>
+                            **时间回溯机制 (Time Rewind):**
+                            通过周期性地存储角色的位置、旋转、Animator 状态等关键帧数据，并在回溯时反向读取并应用这些数据，实现了精确且流畅的“时间回溯”效果。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 右侧边栏 - 技术栈 -->
+            <div class="lg:col-span-1 space-y-8">
+                <div class="detail-card">
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-[#30363d] pb-2">技术栈与工具</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Unity 2022+</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">2D Physics/Raycasting</span>
+                        <span class="skill-tag">State Machine (FSM)</span>
+                        <span class="skill-tag">Unity Tilemap</span>
+                        <span class="skill-tag">面向对象设计 (OOP)</span>
+                        <span class="skill-tag">Git 版本控制</span>
+                    </div>
+                    <style>
+                        .skill-tag {
+                            @apply px-3 py-1 bg-sky-700/50 text-sky-100 text-xs rounded-full font-medium;
+                        }
+                    </style>
+                </div>
+
+                <div class="detail-card">
+                    <h2 class="text-xl font-semibold text-white mb-4 border-b border-[#30363d] pb-2">项目贡献</h2>
+                    <ul class="space-y-2 text-gray-400 list-disc pl-5 text-sm">
+                        <li>**角色控制器**：独立编写 (100%)</li>
+                        <li>**移动机制**：二段跳、冲刺、贴墙滑行逻辑实现 (100%)</li>
+                        <li>**状态机实现**：管理动画与逻辑同步 (100%)</li>
+                        <li>**关卡组件**：移动平台、陷阱交互逻辑 (100%)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 底部版权 (Footer) -->
+    <footer class="mt-20 py-8 border-t border-[#30363d] text-center text-sm text-gray-500">
+        &copy; <span id="current-year-detail"></span>  Platinum. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById('current-year-detail').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
